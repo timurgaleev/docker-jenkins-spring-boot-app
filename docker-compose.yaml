@@ -1,0 +1,26 @@
+version: '3'
+services:
+  mysql:
+   container_name: provectus-mysql
+   image: mysql/mysql-server:5.7
+   environment:
+    MYSQL_DATABASE: provectus
+    MYSQL_ROOT_PASSWORD: 143625
+    MYSQL_ROOT_HOST: '%'
+   ports:
+   - "3306:3306"
+   restart: always
+  
+  simply-java-app:
+    container_name: simply-java-app
+    build:
+            context: .
+            dockerfile: Dockerfile
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    links:
+      - mysql:provectus-mysql
+    depends_on:
+      - mysql
