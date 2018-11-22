@@ -9,6 +9,7 @@ services:
          MYSQL_DATABASE: provectus
          MYSQL_USER: superuser
          MYSQL_PASSWORD: secret
+         MYSQL_ROOT_HOST: '%'
         ports:
             - 3306
         restart: always
@@ -20,7 +21,7 @@ services:
          - mysql-docker
         build: 
          context: .
-         #restart: always
+        restart: always
         links:
          - mysql-docker
         ports:
