@@ -11,6 +11,7 @@ node{
    }
 	stage('Email Notification'){
      	 mail bcc: '', body: 'Delivery jar file is done',
-	cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'aksissound@gmail.com'
+	cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'aksissound@gmail.com' 
+	}
    }
 }
